@@ -6,3 +6,5 @@ This project contains two frameworks, one for application development using Qt 5
 ## Dependencies
 The requirements for using these libraries are CMake and Qt 5.
 
+## Related projects
+These libraries are used by [ResInsight](https://github.com/OPM/ResInsight) and some other smaller projects.
