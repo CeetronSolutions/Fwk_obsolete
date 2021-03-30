@@ -8,7 +8,7 @@ on:
     - cron: '0 1 * * * '
 
 jobs:
-  clang-format-job:
+  clang-tidy:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
@@ -18,7 +18,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ github.workspace }}/Qt/
-          key: QtCache-v01
+          key: QtCache-v02
       - name: Install Qt
         uses: jurplel/install-qt-action@v2
         with:
@@ -41,9 +41,9 @@ jobs:
         run: |
           cd build
           run-clang-tidy -fix files AppFwk
-      - name: Remove Qt before creating PR
-        run: |
-          rm -rf Qt
+        #- name: Remove Qt before creating PR
+        #  run: |
+        #    rm -rf Qt
       - uses: peter-evans/create-pull-request@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
