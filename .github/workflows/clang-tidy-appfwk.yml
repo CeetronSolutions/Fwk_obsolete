@@ -8,7 +8,7 @@ on:
     - cron: '0 1 * * * '
 
 jobs:
-  ResInsight-x64-buildcache:
+  clang-format-job:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
