@@ -1,6 +1,6 @@
 name: clang-tidy on AppFwk
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
   clang-tidy:
