@@ -144,7 +144,7 @@ public:
                            "Enter some small number here",
                            "This is a place you can enter a small integer value if you want" );
 
-        CAF_PDM_InitField( &m_textField, "TextField", QString( "ÆØÅ Test text   end" ), "TextField", "", "Tooltip", "WhatsThis" );
+        CAF_PDM_InitField( &m_textField, "TextField", QString( "Test text   end" ), "TextField", "", "Tooltip", "WhatsThis" );
         CAF_PDM_InitFieldNoDefault( &m_simpleObjPtrField, "SimpleObjPtrField", "SimpleObjPtrField", "", "Tooltip", "WhatsThis" );
         CAF_PDM_InitFieldNoDefault( &m_simpleObjPtrField2, "SimpleObjPtrField2", "SimpleObjPtrField2", "", "Tooltip", "WhatsThis" );
         m_simpleObjPtrField2 = new SimpleObj;
@@ -261,7 +261,7 @@ TEST( BaseTest, Start )
         SimpleObj s;
         s.m_dir        = 10000;
         sp             = &s;
-        a->m_textField = "Hei og hå";
+        a->m_textField = "Hei og hallo";
         //*s2 = s;
         a->m_simpleObjPtrField = s2;
 
@@ -498,7 +498,7 @@ TEST( BaseTest, ReadWrite )
 
         id1->m_texts.v().push_back( "Hei" );
         id1->m_texts.v().push_back( "og" );
-        id1->m_texts.v().push_back( "Hå test with whitespace" );
+        id1->m_texts.v().push_back( "Hï¿½ test with whitespace" );
 
         d2->m_simpleObjPtrField  = &s2;
         d2->m_simpleObjPtrField2 = s1;
@@ -575,7 +575,7 @@ TEST( BaseTest, ReadWrite )
         ASSERT_EQ( size_t( 4 ), ihDObjs[0]->m_simpleObjectsField[1]->m_numbers().size() );
         EXPECT_EQ( 3.13, ihDObjs[0]->m_simpleObjectsField[1]->m_numbers()[3] );
 
-        EXPECT_EQ( QString( "ÆØÅ Test text   end" ), ihDObjs[0]->m_textField() );
+        EXPECT_EQ( QString( "ï¿½ï¿½ï¿½ Test text   end" ), ihDObjs[0]->m_textField() );
 
         // Write file
         QFile xmlFile( "PdmTestFil2.xml" );
