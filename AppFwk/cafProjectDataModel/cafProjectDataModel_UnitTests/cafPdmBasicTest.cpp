@@ -575,7 +575,7 @@ TEST( BaseTest, ReadWrite )
         ASSERT_EQ( size_t( 4 ), ihDObjs[0]->m_simpleObjectsField[1]->m_numbers().size() );
         EXPECT_EQ( 3.13, ihDObjs[0]->m_simpleObjectsField[1]->m_numbers()[3] );
 
-        EXPECT_EQ( QString( "��� Test text   end" ), ihDObjs[0]->m_textField() );
+        EXPECT_EQ( QString( "Test text   end" ), ihDObjs[0]->m_textField() );
 
         // Write file
         QFile xmlFile( "PdmTestFil2.xml" );
