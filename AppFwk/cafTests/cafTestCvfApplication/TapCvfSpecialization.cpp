@@ -43,7 +43,7 @@ void TapCvfSpecialization::defineEditorAttribute(const caf::PdmFieldHandle* fiel
     if (field == &m_vecArrayField)
     {
         caf::PdmUiListEditorAttribute* myAttr = dynamic_cast<caf::PdmUiListEditorAttribute*>(attribute);
-        if (myAttr)
+        if (myAttr != nullptr)
         {
             myAttr->m_baseColor.setRgbF(m_colorField().r(), m_colorField().g(), m_colorField().b());
         }
