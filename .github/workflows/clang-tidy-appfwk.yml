@@ -1,11 +1,6 @@
 name: clang-tidy on AppFwk
 
-on:
-  workflow_dispatch:
-  push:
-  schedule:
-    # Once every night
-    - cron: '0 1 * * * '
+on: [push, pull_request]
 
 jobs:
   clang-tidy:
@@ -41,9 +36,6 @@ jobs:
         run: |
           cd build
           run-clang-tidy -fix files AppFwk
-        #- name: Remove Qt before creating PR
-        #  run: |
-        #    rm -rf Qt
       - uses: peter-evans/create-pull-request@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
