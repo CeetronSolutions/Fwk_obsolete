@@ -61,10 +61,10 @@ class PdmObjectFactory;
 class PdmCodeGenerator
 {
 public:
-    virtual ~PdmCodeGenerator();
+    virtual ~PdmCodeGenerator()                                 = default;
     virtual QString generate( PdmObjectFactory* factory ) const = 0;
 };
 
-typedef Factory<PdmCodeGenerator, std::string> PdmCodeGeneratorFactory;
+using PdmCodeGeneratorFactory = Factory<PdmCodeGenerator, std::string>;
 
 } // namespace caf

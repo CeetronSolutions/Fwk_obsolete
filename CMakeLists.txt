@@ -27,6 +27,7 @@ add_subdirectory(AppFwk/cafPdmScripting)
 add_subdirectory(AppFwk/cafProjectDataModel/cafProjectDataModel_UnitTests)
 add_subdirectory(AppFwk/cafProjectDataModel/cafPdmCore/cafPdmCore_UnitTests)
 add_subdirectory(AppFwk/cafProjectDataModel/cafPdmXml/cafPdmXml_UnitTests)
+add_subdirectory(AppFwk/cafPdmScripting/cafPdmScripting_UnitTests)
 
 # Executables
 add_subdirectory(AppFwk/cafTests/cafTestApplication)
@@ -37,7 +38,7 @@ add_subdirectory(AppFwk/cafTests/cafTestApplication)
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 set_property(TARGET cafPdmCore cafPdmUiCore cafPdmXml cafProjectDataModel PROPERTY FOLDER "ProjectDataModel")
-set_property(TARGET cafPdmCore_UnitTests cafPdmXml_UnitTests cafProjectDataModel_UnitTests PROPERTY FOLDER "UnitTests")
+set_property(TARGET cafPdmCore_UnitTests cafPdmXml_UnitTests cafProjectDataModel_UnitTests cafPdmScripting_UnitTests PROPERTY FOLDER "UnitTests")
 
 option (USE_CEE_VIZ "Enable visualization projects" ON)
 if (USE_CEE_VIZ)
