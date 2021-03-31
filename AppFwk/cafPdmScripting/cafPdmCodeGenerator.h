@@ -61,6 +61,7 @@ class PdmObjectFactory;
 class PdmCodeGenerator
 {
 public:
+    virtual ~PdmCodeGenerator();
     virtual QString generate( PdmObjectFactory* factory ) const = 0;
 };
 
