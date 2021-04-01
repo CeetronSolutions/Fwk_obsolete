@@ -52,6 +52,8 @@ add_subdirectory(cafCommand)
 add_subdirectory(cafCommandFeatures)
 add_subdirectory(cafUserInterface)
 add_subdirectory(cafPdmScripting)
+add_subdirectory(cafHexInterpolator)
+
 
 # executables
 add_subdirectory(cafTests/cafTestApplication)
@@ -65,6 +67,7 @@ add_subdirectory(cafProjectDataModel/cafPdmXml/cafPdmXml_UnitTests)
 add_subdirectory(cafProjectDataModel/cafProjectDataModel_UnitTests)
 add_subdirectory(cafUserInterface/cafUserInterface_UnitTests)
 add_subdirectory(cafPdmScripting/cafPdmScripting_UnitTests)
+add_subdirectory(cafHexInterpolator/cafHexInterpolator_UnitTests)
 
 # Organize sub-projects into folders on Visual Studio Turn on using solution
 # folders
