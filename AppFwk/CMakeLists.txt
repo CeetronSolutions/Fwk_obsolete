@@ -38,6 +38,9 @@ elseif(MSVC)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MP")
 endif()
 
+set(VIZ_MODULES_FOLDER_NAME ../VizFwk)
+include(${VIZ_MODULES_FOLDER_NAME}/CMake/Utils/ceeDetermineCompilerFlags.cmake)
+
 # Improvement Cmake 3.x If we have compiler requirements for this library, list
 # them target_compile_features(lib PUBLIC cxx_auto_type PRIVATE
 # cxx_variadic_templates)
