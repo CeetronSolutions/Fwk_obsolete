@@ -13,6 +13,7 @@ if(MSVC AND (CMAKE_CXX_COMPILER_VERSION VERSION_GREATER 19.11))
 endif()
 
 set(VIZ_MODULES_FOLDER_NAME ../../../../Fwk/VizFwk)
+include(${VIZ_MODULES_FOLDER_NAME}/CMake/Utils/ceeDetermineCompilerFlags.cmake)
 add_subdirectory(${VIZ_MODULES_FOLDER_NAME}/LibCore LibCoreDir})
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR} # required for gtest-all.cpp
