@@ -22,12 +22,14 @@ add_subdirectory(AppFwk/cafCommand)
 add_subdirectory(AppFwk/cafCommandFeatures)
 add_subdirectory(AppFwk/cafUserInterface)
 add_subdirectory(AppFwk/cafPdmScripting)
+add_subdirectory(AppFwk/cafHexInterpolator)
 
 # Unit Tests
 add_subdirectory(AppFwk/cafProjectDataModel/cafProjectDataModel_UnitTests)
 add_subdirectory(AppFwk/cafProjectDataModel/cafPdmCore/cafPdmCore_UnitTests)
 add_subdirectory(AppFwk/cafProjectDataModel/cafPdmXml/cafPdmXml_UnitTests)
 add_subdirectory(AppFwk/cafPdmScripting/cafPdmScripting_UnitTests)
+add_subdirectory(AppFwk/cafHexInterpolator/cafHexInterpolator_UnitTests)
 
 # Executables
 add_subdirectory(AppFwk/cafTests/cafTestApplication)
