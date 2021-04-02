@@ -38,6 +38,11 @@ elseif(MSVC)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MP")
 endif()
 
+# Use CMake to enforce C++17
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
 set(VIZ_MODULES_FOLDER_NAME ../VizFwk)
 include(${VIZ_MODULES_FOLDER_NAME}/CMake/Utils/ceeDetermineCompilerFlags.cmake)
 
