@@ -257,9 +257,9 @@ void PdmUiTreeViewEditor::selectedUiItems( std::vector<PdmUiItem*>& objects )
 
     QModelIndexList idxList = this->treeView()->selectionModel()->selectedIndexes();
 
-    for ( int i = 0; i < idxList.size(); i++ )
+    for ( const auto& index : idxList )
     {
-        caf::PdmUiItem* item = this->m_treeViewModel->uiItemFromModelIndex( idxList[i] );
+        caf::PdmUiItem* item = this->m_treeViewModel->uiItemFromModelIndex( index );
         if ( item )
         {
             objects.push_back( item );
@@ -330,7 +330,7 @@ void PdmUiTreeViewEditor::customMenuRequested( QPoint pos )
 
     caf::PdmUiCommandSystemProxy::instance()->populateMenuWithDefaultCommands( "PdmUiTreeViewEditor", &menu );
 
-    if ( menu.actions().size() > 0 )
+    if ( !menu.actions().empty() )
     {
         // Qt doc: QAbstractScrollArea and its subclasses that map the context menu event to coordinates of the viewport().
         QPoint globalPos = m_treeView->viewport()->mapToGlobal( pos );
@@ -613,7 +613,7 @@ void PdmUiTreeViewItemDelegate::addTag( QModelIndex index, std::unique_ptr<PdmUi
 QRect PdmUiTreeViewItemDelegate::tagRect( const QRect& itemRect, QModelIndex index, size_t tagIndex ) const
 {
     auto it = m_tags.find( index );
-    if ( it == m_tags.end() ) return QRect();
+    if ( it == m_tags.end() ) return {};
 
     QSize fullSize = itemRect.size();
 
@@ -627,7 +627,7 @@ QRect PdmUiTreeViewItemDelegate::tagRect( const QRect& itemRect, QModelIndex ind
             auto  icon     = tag->icon.icon();
             QSize iconSize = icon->actualSize( fullSize );
             QRect iconRect;
-            if ( tag->position == PdmUiTreeViewItemAttribute::Tag::AT_END )
+            if ( tag->position == PdmUiTreeViewItemAttribute::Tag::Position::AT_END )
             {
                 QPoint bottomRight = itemRect.bottomRight() - offset;
                 QPoint topLeft     = bottomRight - QPoint( iconSize.width(), iconSize.height() );
@@ -644,7 +644,7 @@ QRect PdmUiTreeViewItemDelegate::tagRect( const QRect& itemRect, QModelIndex ind
             if ( i == tagIndex ) return iconRect;
         }
     }
-    return QRect();
+    return {};
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -676,7 +676,7 @@ void PdmUiTreeViewItemDelegate::paint( QPainter* painter, const QStyleOptionView
             auto  icon     = tag->icon.icon();
             QSize iconSize = icon->actualSize( fullSize );
             QRect iconRect;
-            if ( tag->position == PdmUiTreeViewItemAttribute::Tag::AT_END )
+            if ( tag->position == PdmUiTreeViewItemAttribute::Tag::Position::AT_END )
             {
                 QPoint bottomRight( rect.bottomRight().x() - offset.x(), center.y() + iconSize.height() / 2 );
                 QPoint topLeft( bottomRight.x() - iconSize.width(), bottomRight.y() - iconSize.height() );
@@ -716,7 +716,7 @@ void PdmUiTreeViewItemDelegate::paint( QPainter* painter, const QStyleOptionView
             int   textDiff = ( fullSize.height() - textSize.height() );
 
             QRect textRect;
-            if ( tag->position == PdmUiTreeViewItemAttribute::Tag::AT_END )
+            if ( tag->position == PdmUiTreeViewItemAttribute::Tag::Position::AT_END )
             {
                 QPoint bottomRight     = rect.bottomRight() - QPoint( outsideLeftRightMargins, 0 ) - offset;
                 QPoint textBottomRight = bottomRight - QPoint( insideleftRightMargins, textDiff / 2 );
