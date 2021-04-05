@@ -38,7 +38,7 @@ jobs:
           useVcpkgToolchainFile: false
 
       - name: Run Unit Tests Windows
-        if: contains( matrix.os, 'windows')  
+        if: "contains( matrix.os, 'windows')"
         shell: bash
         run: |
           cmakebuild/cafProjectDataModel/cafPdmCore/cafPdmCore_UnitTests/Release/cafPdmCore_UnitTests
@@ -46,17 +46,8 @@ jobs:
           cmakebuild/cafProjectDataModel/cafProjectDataModel_UnitTests/Release/cafProjectDataModel_UnitTests
           cmakebuild/cafProjectDataModel/cafPdmScripting/cafPdmScripting_UnitTests/Release/cafPdmScripting_UnitTests
           
-      - name: Run Unit Tests Linux
-        if: "contains( matrix.os, 'ubuntu')"
-        shell: bash
-        run: |
-          cmakebuild/cafProjectDataModel/cafPdmCore/cafPdmCore_UnitTests/cafPdmCore_UnitTests
-          cmakebuild/cafProjectDataModel/cafPdmXml/cafPdmXml_UnitTests/cafPdmXml_UnitTests
-          cmakebuild/cafProjectDataModel/cafProjectDataModel_UnitTests/cafProjectDataModel_UnitTests
-          cmakebuild/cafProjectDataModel/cafPdmScripting/cafPdmScripting_UnitTests/cafPdmScripting_UnitTests
-
-      - name: Run Unit Tests Mac
-        if: "contains( matrix.os, 'mac')"
+      - name: Run Unit Tests Linux and Mac
+        if: "!contains( matrix.os, 'windows')"
         shell: bash
         run: |
           cmakebuild/cafProjectDataModel/cafPdmCore/cafPdmCore_UnitTests/cafPdmCore_UnitTests
