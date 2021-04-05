@@ -33,7 +33,6 @@ jobs:
         with:
           cmakeListsOrSettingsJson: CMakeListsTxtAdvanced
           cmakeListsTxtPath: '${{ github.workspace }}/AppFwk/CMakeLists.txt'
-          cmakeAppendedArgs: ¨¨
           buildDirectory: ${{ github.workspace }}/cmakebuild
           buildWithCMakeArgs: '--config Release'
           useVcpkgToolchainFile: false
