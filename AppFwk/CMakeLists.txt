@@ -62,7 +62,6 @@ add_subdirectory(cafUserInterface)
 add_subdirectory(cafPdmScripting)
 add_subdirectory(cafHexInterpolator)
 
-
 # executables
 add_subdirectory(cafTests/cafTestApplication)
 

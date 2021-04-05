@@ -25,11 +25,12 @@ set(PROJECT_FILES cafHexInterpolatorBasicTest.cpp
 # add the executable
 add_executable(${PROJECT_NAME} ${PROJECT_FILES} gtest/gtest-all.cpp)
 
-# Setup our platform dependent libraries here, assuming they'll be the same for all the tests
-if (UNIX AND NOT APPLE)
-	set(CEE_PLATFORM_LIBS rt pthread)
+# Setup our platform dependent libraries here, assuming they'll be the same for
+# all the tests
+if(UNIX AND NOT APPLE)
+  set(CEE_PLATFORM_LIBS rt pthread)
 endif()
 
-target_link_libraries(${PROJECT_NAME} LibCore ${CEE_PLATFORM_LIBS} )
+target_link_libraries(${PROJECT_NAME} LibCore ${CEE_PLATFORM_LIBS})
 
 source_group("" FILES ${PROJECT_FILES})
